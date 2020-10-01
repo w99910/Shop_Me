@@ -54,8 +54,8 @@ class Home extends Component
         $this->products=Product::all();
         $this->emit('refresh');
     }
-    public function purchase_page(Product $product){
-        return redirect('/purchase/'.$product->id);
+    public function purchase_page($id){
+        return redirect('/purchase/'.$id);
     }
     public function deleteCart($id){
         $user=auth()->user();

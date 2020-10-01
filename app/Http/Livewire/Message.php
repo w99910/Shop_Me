@@ -19,7 +19,7 @@ class Message extends Component
     public function getListeners()
     {
         return [
-            "echo-private:message,.message-event.7" => 'notifyNewOrder',
+            "echo-private:message,.message-event.2" => 'notifyNewOrder',
         ];
     }
     public function mount(){
@@ -29,6 +29,7 @@ class Message extends Component
         $this->selected=$id;
         $one=\App\Message::where('from',$this->selected)->where('to',auth()->id())->get();
         $two=\App\Message::where('to',$this->selected)->where('from',auth()->id())->get();
+
         $this->messages=$one->merge($two)->sortby('created_at');
     }
     public function sendMessage(){

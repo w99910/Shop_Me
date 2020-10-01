@@ -13,7 +13,9 @@ class ProductController extends Controller
    public function export(){
     return Excel::download(new ProductsExport(),'products.xlsx');
    }
-
+     public function __construct(){
+       $this->middleware('auth');
+     }
     public function editing(Request $request,$id){
         $product=Product::find($id);
 

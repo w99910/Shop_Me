@@ -28,7 +28,7 @@ class Checkout extends Component
             return null;
         }
         else {
-            $send_message = \App\Message::create(['from' => $id, 'to' => 7, 'message' => $this->text]);
+            $send_message = \App\Message::create(['from' => $id, 'to' => 2, 'message' => $this->text]);
             broadcast(new \App\Events\Message($send_message));
             $this->messages = \App\Message::where('from', auth()->id())->orWhere('to', auth()->id())->get();
 

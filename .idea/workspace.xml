@@ -22,6 +22,7 @@
     <list default="true" id="212ae468-a981-475e-8040-3d1939ad4d46" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -356,7 +357,7 @@
       <workItem from="1601476387673" duration="4678000" />
       <workItem from="1601527907398" duration="17273000" />
       <workItem from="1601552232660" duration="7621000" />
-      <workItem from="1601564854524" duration="2060000" />
+      <workItem from="1601564854524" duration="2950000" />
     </task>
     <servers />
   </component>
@@ -432,10 +433,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="324" y="90" width="700" height="530" key="recent.locations.popup/0.0.1366.728@0.0.1366.728" timestamp="1599102530772" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1601560434553">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1601567558152">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1601560434553" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1601567558152" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

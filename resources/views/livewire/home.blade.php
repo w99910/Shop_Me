@@ -1,4 +1,4 @@
-<div class="h-full w-full flex flex-col relative" x-data="{isDrop:false,isMessage:false}">
+<div class="h-full w-full flex flex-col relative" x-data="{isDrop:false,isMessage:false,isUser:false}">
     <div class="flex flex-col px-5 py-5 justify-between items-center sm:flex-row ">
       <div class="flex">
           <div class="flex relative justify-center items-center">
@@ -43,8 +43,16 @@
                     @endif
                 </div>
             </div>
-            <div class="mr-3 flex rounded">
-                <img src="{{ Avatar::create(auth()->user()->name)->toBase64() }}" alt="{{auth()->user()->name}}" class="w-10 h-10" />
+            <div class="relative h-full mr-3 flex rounded" x-on:click="isUser = !isUser" @click.away="isUser=false">
+                <img src="{{ auth()->user()->profile_url !== ''? auth()->user()->profile_url :Avatar::create(auth()->user()->name)->toBase64()}}" alt="{{auth()->user()->name}}" class=" rounded-full w-10 h-10" />
+                   <div class="absolute px-3 rounded-lg bottom-0 right-0 bg-white z-50 -mb-16" x-show="isUser">
+                       <ul>
+                           <li class="py-2 px-4"><a href="{{route('user_profile')}}">Profile</a></li>
+                           <li class="py-2 px-4"><form method="POST" action="{{route('custom_logout')}}" >
+                                   @csrf
+                                   <button type="submit" class="focus:outline-none">Logout</button></form></li>
+                       </ul>
+                   </div>
             </div>
         </div>
     </div>
@@ -65,9 +73,14 @@
                                 <div class="font-bold p-1 bg-alert mx-1 rounded-lg text-xs sm:text-md">-{{$discount->name}}</div>
                             @endforeach
                         @endif
+                       <div class="flex">
+                           <button class="h-full rounded-lg p-1 sm:p-3 mx-2 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="favourite({{$product->id}})">
+                               <i class="fas fa-heart text-md sm:text-xl {{$product->is_favourite?'text-red-500':'text-black'}}"></i>
+                           </button>
                         <button class="h-full rounded-lg p-1 sm:p-3 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="purchase_page({{$product->id}})">
                             <i class="fas fa-shopping-cart text-md sm:text-xl text-orange-500"></i>
                         </button>
+                       </div>
                     </div>
                 </div>
             </div>
@@ -88,15 +101,20 @@
                                     <div class="font-bold p-1 bg-alert mx-1 rounded-lg text-xs sm:text-md">-{{$discount->name}}</div>
                                 @endforeach
                             @endif
-                            <button class="h-full rounded-lg p-1 sm:p-3 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="purchase_page({{$product->id}})">
-                                <i class="fas fa-shopping-cart text-md sm:text-xl text-orange-500"></i>
-                            </button>
+                            <div class="flex">
+                                <button class="h-full rounded-lg p-1 sm:p-3 mx-2 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="favourite({{$product->id}})">
+                                    <i class="fas fa-heart text-md sm:text-xl {{$product->is_favourite?'text-red-500':'text-black'}}"></i>
+                                </button>
+                                <button class="h-full rounded-lg p-1 sm:p-3 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="purchase_page({{$product->id}})">
+                                    <i class="fas fa-shopping-cart text-md sm:text-xl text-orange-500"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             @endforeach
     </div>
-    <div class="absolute bottom-0 right-0 flex flex-col z-100" :class="{'h-5/7 w-8/12 sm:w-4/12':isMessage}" @click.away="isMessage = false">
+    <div class="absolute bottom-0 right-0 flex flex-col z-100" :class="{'h-5/7 w-11/12 sm:w-4/12':isMessage}" @click.away="isMessage = false">
         <div class="h-full w-full pr-10 pb-12" x-show="isMessage" :class="{'hidden':!isMessage}" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 origin-bottom-right transform  scale-0" x-transition:enter-end="opacity-100 origin-bottom-right transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 origin-bottom-right transform scale-100" x-transition:leave-end="opacity-0 origin-bottom-right transform scale-0">
             <div class="h-full w-full bg-white relative flex flex-col justify-between rounded-xl px-2 py-2">
                 <div class="h-full w-full overflow-hidden overflow-y-auto message_scrollbar">

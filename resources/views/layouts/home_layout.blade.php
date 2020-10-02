@@ -50,6 +50,7 @@
             <div class="flex h-full flex-col mt-3 ml-0 px-3 nav justify-between items-center" :class="{'hidden':isNav}">
                 <h2 class="font-handwrite text-3xl">ShopMe</h2>
                 <nav class="flex flex-col">
+
                     <ul class="text-md sm:text-lg">
                         <li class="flex items-center justify-start py-5 cursor-pointer" x-on:click="window.livewire.emit('home')"><img src="{{asset('images/browser.png')}}" alt="image" class="w-0 sm:w-2/12 h-auto  mr-3"/> Home</li>
                         <li class="flex items-center justify-start py-5 cursor-pointer" x-on:click="window.livewire.emit('new')"><img src="{{asset('images/new.png')}}" alt="image" class="w-0 sm:w-2/12 h-auto  mr-3"/> Newest</li>

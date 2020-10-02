@@ -14,5 +14,8 @@ class Product extends Model
        public function discounts(){
         return $this->belongsToMany('App\Discount');
        }
+       public function getIsFavouriteAttribute(){
+        return Favourite::where('product_id',$this->id)->where('user_id',auth()->id())->exists();
+       }
 
 }

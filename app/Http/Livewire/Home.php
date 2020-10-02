@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Cart;
 use App\Category;
+use App\Favourite;
 use App\Product;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -25,6 +26,18 @@ class Home extends Component
             'new'=>'newest',
             'discount'=>'discount','home'=>'home'
         ];
+    }
+    public function favourite($id){
+        $favourite=Favourite::where('user_id',auth()->id())->where('product_id',$id)->first();
+        if ($favourite === null)
+        {
+            Favourite::create(['user_id'=>auth()->id(),'product_id'=>$id]);
+        }
+        else {
+            $favourite->delete();
+            $this->products=Product::all();
+        }
+
     }
     public function updateMessage($message){
 

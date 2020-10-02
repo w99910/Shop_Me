@@ -37,8 +37,10 @@
         }
     </style>
 </head>
-<body class="font-poppins h-0 max-h-screen min-h-screen overflow-hidden">
-@livewire('user-profile');
+<body class="font-poppins h-screen w-full overflow-auto sm:overflow-hidden">
+<div class="h-screen w-full">
+@livewire('user-profile')
+</div>
 @livewireScripts
 @include('sweetalert::alert')
 @stack('scripts')

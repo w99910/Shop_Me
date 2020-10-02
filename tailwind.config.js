@@ -22,6 +22,9 @@ module.exports = {
               soft_pink:'#F1EEF9',
               soft_purple:'#cabbe9',
               redme:'#28385e',
+              whitie:'#fdfdfd',
+              soft_blue:'#a1eafb',
+              blackie:'#3f3b3b',
           },
           inset:{
               '1/2': '50%',

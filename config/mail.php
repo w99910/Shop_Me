@@ -85,7 +85,7 @@ return [
 
     'from' => [
         'address' => 'laravelecommerce2020@gmail.com',
-        'name' => 'E-Commerce',
+        'name' => 'ShopMe',
     ],
 
     /*

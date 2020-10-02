@@ -62,4 +62,10 @@ class User extends Authenticatable
     public function messages(){
         return $this->hasMany('App\Message','from','id');
     }
+    public function invoices(){
+        return $this->hasMany('App\Revenue');
+    }
+    public function favourites(){
+           return $this->hasMany('App\Favourite');
+    }
 }

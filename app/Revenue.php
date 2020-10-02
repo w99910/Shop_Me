@@ -12,5 +12,9 @@ class Revenue extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+    public function getTimeAttribute(){
+        return $this->created_at->diffForHumans();
+    }
+
 
 }

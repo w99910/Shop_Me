@@ -23,7 +23,9 @@ class Message extends Component
         ];
     }
     public function mount(){
-        $this->users=User::all();
+//        $this->users=User::where('id','!=',auth()->id())->get();
+        $this->users=User::all()->except(auth()->id());
+
     }
     public function showMessage($id){
         $this->selected=$id;

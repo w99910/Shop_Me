@@ -50,8 +50,8 @@ class CartController extends Controller
                         'metadata' => [],
 
                     ]);
-                    Revenue::create(['user_id'=>$user->id,'invoice'=>$charge]);
-//                    Mail::to($request->email)->send(new InvoicePaid($user->carts,$charge));
+                    Revenue::create(['user_id'=>$user->id,'invoice'=>$user->total_charge]);
+                    Mail::to($request->email)->send(new \App\Mail\Invoice($user->carts,$user->total_charge));
                     $user->carts()->delete();
                     return response()->json('success');
                 } catch (Exception $e) {

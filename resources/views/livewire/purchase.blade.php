@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col m-0 bg-soft_pink" x-data="{isDrop:false,isMessage:false}">
+<div class="w-full flex flex-col m-0 bg-soft_pink" x-data="{isDrop:false,isMessage:false,isUser:false}">
     <div class="flex px-5 py-5 justify-between items-center ">
         <div class="flex">
             <a href="{{route('home')}}">
@@ -31,8 +31,16 @@
                     @endif
                 </div>
             </div>
-            <div class="mr-3 flex rounded">
-                <img src="{{ Avatar::create(auth()->user()->name)->toBase64() }}" alt="{{auth()->user()->name}}" class="w-10 h-10" />
+            <div class="relative h-full mr-3 flex rounded" x-on:click="isUser = !isUser" @click.away="isUser=false">
+                <img src="{{ auth()->user()->profile_url !== ''? auth()->user()->profile_url :Avatar::create(auth()->user()->name)->toBase64()}}" alt="{{auth()->user()->name}}" class=" rounded-full w-10 h-10" />
+                <div class="absolute px-3 rounded-lg bottom-0 right-0 bg-white z-50 -mb-16" x-show="isUser">
+                    <ul>
+                        <li class="py-2 px-4"><a href="{{route('user_profile')}}">Profile</a></li>
+                        <li class="py-2 px-4"><form method="POST" action="{{route('custom_logout')}}" >
+                                @csrf
+                                <button type="submit" class="focus:outline-none">Logout</button></form></li>
+                    </ul>
+                </div>
             </div>
 
         </div>

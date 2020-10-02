@@ -50,6 +50,13 @@ Route::get('/2factor',function()
         $inlineUrl=$google2fa->getQRCodeInline('name','zlintun001@gmail.com',$secretKey);
         return view('auth.2fa')->with('image',$inlineUrl);
     });
+Route::get('mailable', function () {
+   $user=\App\User::find(1);
+   $total_price=$user->total_charge;
+   $carts=$user->carts;
+
+    return new App\Mail\Invoice($carts,$total_price);
+});
 Route::post('/custom_logout',[\App\Http\Controllers\HomeController::class,'logout'])->name('custom_logout');
 Route::group(['prefix' => '2fa'],function() {
     Route::get('/', [\App\Http\Controllers\PasswordSecurityController::class,'index'])->name('show2fa');
@@ -69,4 +76,4 @@ Route::view('intro','intro');
 
 Route::get('login/{name}', [\App\Http\Controllers\UserController::class, 'redirectToProvider']);
 Route::get('login/{name}/callback', [\App\Http\Controllers\UserController::class, 'handleProviderCallback']);
-Route::view('user_profile','user_profile')->middleware('auth');
+Route::view('user_profile','user_profile')->name('user_profile')->middleware('auth');

@@ -23,7 +23,7 @@
 
                  </table>
                  <div class="flex w-full justify-between my-10 sm:my-0">
-                     <img src="{{ $user->profile_url !== ''? $user->profile_url :Avatar::create(auth()->user()->name)->toBase64()}}" alt="{{$user->name}}" class="w-16 h-16 rounded-full">
+                     <img src="{{ $user->profile_url === null ? Avatar::create(auth()->user()->name)->toBase64() : $user->profile_url  }}" alt="{{$user->name}}" class="w-16 h-16 rounded-full">
                      <button class="px-2 py-1 rounded-lg bg-logout" id="image">Change Profile Image</button>
                  </div>
              </div>

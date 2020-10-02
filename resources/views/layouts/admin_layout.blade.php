@@ -43,7 +43,7 @@
                 <li ><a href="{{route('admin_home')}}"  class="flex items-center justify-start py-5 cursor-pointer"><i class="fas fa-home px-2"></i>DashBoard</a></li>
                 <li ><a href="{{route('page.user')}}"   class="flex items-center justify-start py-5 cursor-pointer" ><i class="fas fa-users px-2"></i>Users</a> </li>
                 <li ><a href="{{route('page.product')}}" class="flex items-center justify-start py-5 cursor-pointer" ><i class="fas fa-th-list px-2"></i>Products</a> </li>
-                <li> <form id="logout-form" action="{{ route('logout') }}" method="POST" class=" flex items-center justify-start  cursor-pointer py-5">
+                <li> <form id="logout-form" action="{{ route('custom_logout') }}" method="POST" class=" flex items-center justify-start  cursor-pointer py-5">
                         @csrf<i class="fas fa-sign-out-alt px-2"></i> <button type="submit" class="focus:outline-none">Logout</button>
                     </form></li>
             </ul>

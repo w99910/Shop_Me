@@ -88,7 +88,7 @@
                                     <div class="font-bold p-1 bg-alert mx-1 rounded-lg text-xs sm:text-md">-{{$discount->name}}</div>
                                 @endforeach
                             @endif
-                            <button class="h-full rounded-lg p-1 sm:p-3 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="purchase_page({{$product}})">
+                            <button class="h-full rounded-lg p-1 sm:p-3 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="purchase_page({{$product->id}})">
                                 <i class="fas fa-shopping-cart text-md sm:text-xl text-orange-500"></i>
                             </button>
                         </div>

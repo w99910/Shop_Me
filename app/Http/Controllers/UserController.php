@@ -18,6 +18,9 @@ class UserController extends Controller
     public function export(){
         return Excel::download(new UsersExport(),'users.xlsx');
     }
+    public function __construct(){
+        $this->middleware('GuestMiddle');
+    }
     public function index()
     {
        return view('auth.login');

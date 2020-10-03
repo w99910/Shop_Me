@@ -112,9 +112,11 @@
                 <div class="h-full w-full overflow-hidden overflow-y-auto message_scrollbar">
                     <ul class="flex flex-col">
                         @foreach($messages as $message)
-                            <li class="{{$message->from==auth()->id()?'text-right inline-block my-2':'text-left inline-block my-2'}}">
-                          <span class="{{$message->from==auth()->id()?'px-2 py-1 bg-dribbble rounded-xl':'rounded-xl px-2 py-1 bg-alert'}}"> {{$message->message}}
-                       </span></li>
+                            <li class="inline-block relative my-3 {{$message->from==auth()->id()?'text-right ':'text-left'}}">
+                                <span class="{{$message->from==auth()->id()?'px-2 py-1 bg-dribbble rounded-xl':'rounded-xl px-2 py-1 bg-alert'}}"> {{$message->message}}
+                                </span>
+                                <span class="text-xs text-gray-600 -mb-5 bottom-0 {{$message->from==auth()->id()?'right-0':'left-0'}}">{{$message->time}}</span>
+                            </li>
                         @endforeach
                     </ul>
                 </div>

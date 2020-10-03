@@ -12,5 +12,8 @@ class Message extends Model
     public function sender(){
         return $this->belongsTo('App\User','from','id');
     }
+    public function getTimeAttribute(){
+        return $this->created_at->diffForHumans();
+    }
 
 }

@@ -56,11 +56,16 @@
             </div>
         </div>
     </div>
-    <div class="container flex flex-wrap overflow-auto mx-auto border-t-2 border-gray-100 px-2 custom_scrollbar rounded-custom">
+    <div class="container flex flex-wrap overflow-auto  border-t-2 border-gray-100 px-2 custom_scrollbar rounded-custom">
         @foreach($products as $product)
-            <div class="bg-transparent h-64 w-1/3 sm:w-1/3 md:w-1/4 lg:w-1/5 flex flex-col items-center mx-auto px-2  mt-4 mb-8 rounded-t-xl relative" >
-                <div class="w-full rounded-t-lg flex flex-col items-end bg-white">
+            <div class="bg-transparent h-64 w-2/4 sm:w-1/3 md:w-1/4 lg:w-1/5 flex flex-col items-center  px-2 my-2 sm:mt-4 sm:mb-8 rounded-t-xl relative" >
+                <div class="w-full rounded-t-lg flex flex-col items-end bg-white relative">
                     <img src="{{url($product->image_path)}}"  alt="{{$product->name}}" class="inline object-cover object-center"/>
+                    @if(empty($product->discounts)!==null)
+                        @foreach($product->discounts as $discount)
+                            <div class="absolute top-0 right-0 sm:font-bold p-1 bg-alert sm:mx-1 rounded-lg text-xs sm:text-md">-{{$discount->name}}</div>
+                        @endforeach
+                    @endif
                 </div>
                 <div class="bg-semi w-full justify-start bg-white p-0 sm:p-2 rounded-lg text-white">
                     <div class="flex flex-col items-start sm:items-center justify-between sm:flex-row pl-2 sm:pl-0">
@@ -68,27 +73,28 @@
                             <p>{{$product->name}}</p>
                             <p>{{$product->price}}$</p>
                         </div>
-                        @if(empty($product->discounts)!==null)
-                            @foreach($product->discounts as $discount)
-                                <div class="font-bold p-1 bg-alert mx-1 rounded-lg text-xs sm:text-md">-{{$discount->name}}</div>
-                            @endforeach
-                        @endif
-                       <div class="flex">
-                           <button class="h-full rounded-lg p-1 sm:p-3 mx-2 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="favourite({{$product->id}})">
-                               <i class="fas fa-heart text-md sm:text-xl {{$product->is_favourite?'text-red-500':'text-black'}}"></i>
-                           </button>
-                        <button class="h-full rounded-lg p-1 sm:p-3 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="purchase_page({{$product->id}})">
-                            <i class="fas fa-shopping-cart text-md sm:text-xl text-orange-500"></i>
-                        </button>
-                       </div>
+
+                        <div class="flex w-full justify-end px-2">
+                            <button class="h-full rounded-lg p-1 sm:p-2 mx-2 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="favourite({{$product->id}})">
+                                <i class="fas fa-heart text-md sm:text-md {{$product->is_favourite?'text-red-500':'text-black'}}"></i>
+                            </button>
+                            <button class="h-full rounded-lg p-1 sm:p-2 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="purchase_page({{$product->id}})">
+                                <i class="fas fa-shopping-cart text-md sm:text-md text-orange-500"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         @endforeach
             @foreach($products as $product)
-                <div class="bg-transparent h-64 w-1/3 sm:w-1/3 md:w-1/4 lg:w-1/5 flex flex-col items-center mx-auto px-2  mt-4 mb-8 rounded-t-xl relative" >
-                    <div class="w-full rounded-t-lg flex flex-col items-end bg-white">
+                <div class="bg-transparent h-64 w-2/4 sm:w-1/3 md:w-1/4 lg:w-1/5 flex flex-col items-center  px-2  mt-4 mb-8 rounded-t-xl relative" >
+                    <div class="w-full rounded-t-lg flex flex-col items-end bg-white relative">
                         <img src="{{url($product->image_path)}}"  alt="{{$product->name}}" class="inline object-cover object-center"/>
+                        @if(empty($product->discounts)!==null)
+                            @foreach($product->discounts as $discount)
+                                <div class="absolute top-0 right-0 sm:font-bold p-1 bg-alert sm:mx-1 rounded-lg text-xs sm:text-md">-{{$discount->name}}</div>
+                            @endforeach
+                        @endif
                     </div>
                     <div class="bg-semi w-full justify-start bg-white p-0 sm:p-2 rounded-lg text-white">
                         <div class="flex flex-col items-start sm:items-center justify-between sm:flex-row pl-2 sm:pl-0">
@@ -96,17 +102,13 @@
                                 <p>{{$product->name}}</p>
                                 <p>{{$product->price}}$</p>
                             </div>
-                            @if(empty($product->discounts)!==null)
-                                @foreach($product->discounts as $discount)
-                                    <div class="font-bold p-1 bg-alert mx-1 rounded-lg text-xs sm:text-md">-{{$discount->name}}</div>
-                                @endforeach
-                            @endif
-                            <div class="flex">
-                                <button class="h-full rounded-lg p-1 sm:p-3 mx-2 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="favourite({{$product->id}})">
-                                    <i class="fas fa-heart text-md sm:text-xl {{$product->is_favourite?'text-red-500':'text-black'}}"></i>
+
+                            <div class="flex w-full justify-end px-2">
+                                <button class="h-full rounded-lg p-1 sm:p-2 mx-2 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="favourite({{$product->id}})">
+                                    <i class="fas fa-heart text-md sm:text-md {{$product->is_favourite?'text-red-500':'text-black'}}"></i>
                                 </button>
-                                <button class="h-full rounded-lg p-1 sm:p-3 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="purchase_page({{$product->id}})">
-                                    <i class="fas fa-shopping-cart text-md sm:text-xl text-orange-500"></i>
+                                <button class="h-full rounded-lg p-1 sm:p-2 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="purchase_page({{$product->id}})">
+                                    <i class="fas fa-shopping-cart text-md sm:text-md text-orange-500"></i>
                                 </button>
                             </div>
                         </div>
@@ -116,7 +118,7 @@
     </div>
     <div class="absolute bottom-0 right-0 flex flex-col z-100" :class="{'h-5/7 w-11/12 sm:w-4/12':isMessage}" @click.away="isMessage = false">
         <div class="h-full w-full pr-10 pb-12" x-show="isMessage" :class="{'hidden':!isMessage}" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 origin-bottom-right transform  scale-0" x-transition:enter-end="opacity-100 origin-bottom-right transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 origin-bottom-right transform scale-100" x-transition:leave-end="opacity-0 origin-bottom-right transform scale-0">
-            <div class="h-full w-full bg-white relative flex flex-col justify-between rounded-xl px-2 py-2">
+            <div class="h-full w-full bg-white relative flex flex-col justify-between rounded-xl px-2 py-2 border border-4 border-redme">
                 <div class="h-full w-full overflow-hidden overflow-y-auto message_scrollbar">
                     <ul class="flex flex-col">
                         @foreach($messages as $message)

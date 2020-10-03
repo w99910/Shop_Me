@@ -68,4 +68,7 @@ class User extends Authenticatable
     public function favourites(){
            return $this->hasMany('App\Favourite');
     }
+    public function checkHasImage(){
+        return $this->profile_url!==null;
+    }
 }

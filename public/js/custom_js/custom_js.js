@@ -99,12 +99,14 @@
     title: `Editing Product Id ${i}`,
     html:
     '<input id="swal-input1" class="swal2-input" type="text" placeholder="Product Name">' +
-    '<input id="swal-input2" class="swal2-input" type="text" placeholder="Product Price">',
+    '<input id="swal-input2" class="swal2-input" type="text" placeholder="Product Price">'+
+        '<select id="swal-input3" class="swal2-select"><option value="0">Discount</option><option value="1">5%</option><option value="2">10%</option><option value="3">15%</option><option value="4">20%</option><option value="5">25%</option><option value="6">50%</option>',
     focusConfirm: false,
     preConfirm: () => {
     return [
     document.getElementById('swal-input1').value,
-    document.getElementById('swal-input2').value
+    document.getElementById('swal-input2').value,
+        document.getElementById('swal-input3').value,
     ]
 } ,
     showCancelButton: true,
@@ -115,13 +117,18 @@
 }
 
 })
-    if(ipAddress[0]==''&&ipAddress[1]==''){
-    Swal.fire({
-    icon: 'warning',
-    text:"You must write something!!"});
-}
-    else{
 
+//         if(ipAddress[0]==''&&ipAddress[1]==''){
+
+// }
+        if(ipAddress[0]===''&&ipAddress[1]===''&&ipAddress[2]==='0'){
+            Swal.fire({
+                icon: 'warning',
+                text:"You must write something!!"});
+
+        }
+       else if(ipAddress){
+       console.log(JSON.stringify(ipAddress));
     const res=await axios.post(`testing/${i}`,ipAddress);
     // Swal.fire(JSON.stringify(ipAddress));
     const data=res.data;
@@ -131,7 +138,11 @@
     text:data});
 }
     window.livewire.emit('refreshing');
-}
+} else {
+        Swal.fire({
+            icon: 'warning',
+            text:"You must write something!!"});
+    }
 
 }
 

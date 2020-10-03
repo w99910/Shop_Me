@@ -24,6 +24,11 @@ class ProductPage extends Component
      $this->redirectRoute('product_export');
 
     }
+    public function removeDiscount($id){
+        $product=Product::find($id);
+        $product->discounts()->detach();
+        $this->resetPage();
+    }
 
     public function updatingSearch()
         {
@@ -43,14 +48,14 @@ class ProductPage extends Component
 //             'image_path' => 'product.'.$data['name'].'.'.$data['extension'],
         $cate_id=$data['select'];
         $product->categories()->attach($cate_id);
-        Storage::disk('google')->put('product.'.$product->name.'.'.$data['extension'],$decoded);
+        Storage::disk('google')->put('product.'.$product->id.'.'.$data['extension'],$decoded);
         $dir = '/';
         $recursive = false; // Get subdirectories also?
         $contents = collect(Storage::cloud()->listContents($dir, $recursive));
         $file = $contents
             ->where('type', '=', 'file')
-            ->where('filename', '=', pathinfo('product.'.$product->name.'.'.$data['extension'], PATHINFO_FILENAME))
-            ->where('extension', '=', pathinfo('product.'.$product->name.'.'.$data['extension'], PATHINFO_EXTENSION))
+            ->where('filename', '=', pathinfo('product.'.$product->id.'.'.$data['extension'], PATHINFO_FILENAME))
+            ->where('extension', '=', pathinfo('product.'.$product->id.'.'.$data['extension'], PATHINFO_EXTENSION))
             ->first(); // there can be duplicate file names!
         //return $contents->where('type', '=', 'dir'); // directories
         $service = Storage::cloud()->getAdapter()->getService();

@@ -18,7 +18,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
-    <link href="{{asset('css/customcss/customcss.css')}}" rel="stylesheet">
     @livewireStyles
     <style>
         @media only screen and (min-width: 640px){
@@ -28,14 +27,15 @@
             }
         }
     </style>
+    @stack('styles')
 {{--    style="background-image: url('{{asset('images/admin-bg.jpg')}}')"--}}
 </head>
-<body class=" font-poppins h-0 max-h-screen min-h-screen overflow-auto sm:overflow-hidden bg-cover "  >
+<body class=" font-poppins max-h-screen overflow-auto sm:overflow-hidden bg-cover "  >
 @auth
 {{--    <header>--}}
 {{--        --}}
 {{--    </header>--}}
-    <div class="flex flex-col sm:flex-row">
+    <div class="flex flex-col sm:flex-row w-full sm:w-auto">
     <header class="absolute top-0 left-0 w-full z-50 sm:relative sm:w-auto flex flex-col bg-gray-300 sm:h-screen justify-between items-center px-3 py-1 sm:px-10" x-data="{isOpen:true}">
         <div class="flex py-2 items-center w-full justify-start sm:hidden" x-on:click="isOpen = !isOpen"><i class="fa fa-bars"></i> </div>
         <nav class="flex flex-col mx-auto flex nav" :class="{'hidden':isOpen}">

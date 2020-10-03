@@ -25,6 +25,8 @@
                  <div class="flex w-full justify-between my-10 sm:my-0">
                      <img src="{{ $user->profile_url === null ? Avatar::create(auth()->user()->name)->toBase64() : $user->profile_url  }}" alt="{{$user->name}}" class="w-16 h-16 rounded-full">
                      <button class="px-2 py-1 rounded-lg bg-logout" id="image">Change Profile Image</button>
+                     <button class="px-2 py-1 rounded-lg bg-logout" wire:click="delete">Delete Profile Image</button>
+
                  </div>
              </div>
 
@@ -134,17 +136,18 @@
                       text:'Please Try again'
                   })
               }
-              window.livewire.on('message_change',data=>{
-                       Swal.fire({
-                           icon:data[0],
-                           text:data[1],
-                       })
-              })
+
               // window.livewire.emit('changePassword',password[2]).then((res => {
               //    console.log(res);
               // }));
           }
       });
+      window.livewire.on('message_change',data=>{
+          Swal.fire({
+              icon:data[0],
+              text:data[1],
+          })
+      })
       document.getElementById('image').addEventListener('click', async()=>  {
           const {value:image}=await Swal.fire({
               title:'Change Name',

@@ -1,7 +1,9 @@
 <div class="h-full w-full flex flex-col relative" x-data="my_component()">
     <div class="custom_filter fixed flex justify-around items-center sm:absolute bottom-0 left-0 w-full h-24 rounded-t-xl bg-redme z-120 transform translate-y-full text-white">
-        <button class="focus:outline-none cursor-pointer flex justify-center items-center" wire:click="discount" x-on:click="isFilter= true"><img src="{{asset('images/sale.png')}}" alt="discount" class="w-8 h-8">Discount</button>
-        <button class="focus:outline-none cursor-pointer flex justify-center items-center" wire:click="newest" x-on:click="isFilter= true"><img src="{{asset('images/new.png')}}" alt="new" class="w-8 h-8">Latest</button>
+        <button class="focus:outline-none cursor-pointer flex justify-center items-center" wire:click="discount" x-on:click="toggleFilter"><img src="{{asset('images/sale.png')}}" alt="discount" class="w-8 h-8">Discount</button>
+        <button class="focus:outline-none cursor-pointer flex justify-center items-center" wire:click="newest" x-on:click="toggleFilter"><img src="{{asset('images/new.png')}}" alt="new" class="w-8 h-8">Latest</button>
+        <button class="focus:outline-none cursor-pointer flex justify-center items-center" wire:click="clearFilter" x-on:click="toggleFilter">Clear Filter</button>
+
     </div>
     <div class="flex flex-col px-5 py-5 justify-between items-center sm:flex-row ">
       <div class="flex">
@@ -112,7 +114,7 @@
                 </div>
             @endforeach
     </div>
-    <div class="absolute bottom-0 right-0 flex flex-col z-100" :class="{'h-5/7 w-11/12 sm:w-4/12':isMessage}" @click.away="isMessage = false">
+    <div class="fixed bottom-0 right-0 flex flex-col z-100" :class="{'h-5/7 w-11/12 sm:w-4/12':isMessage}" @click.away="isMessage = false">
         <div class="h-full w-full pr-10 pb-12" x-show="isMessage" :class="{'hidden':!isMessage}" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 origin-bottom-right transform  scale-0" x-transition:enter-end="opacity-100 origin-bottom-right transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 origin-bottom-right transform scale-100" x-transition:leave-end="opacity-0 origin-bottom-right transform scale-0">
             <div class="h-full w-full bg-white relative flex flex-col justify-between rounded-xl px-2 py-2 border border-4 border-redme">
                 <div class="h-full w-full overflow-hidden overflow-y-auto message_scrollbar">

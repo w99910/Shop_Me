@@ -108,5 +108,8 @@ class Home extends Component
         $this->products=Product::has('discounts')->get();
         $this->emit('refresh');
     }
+    public function clearFilter(){
+        $this->products=Product::all();
+    }
 
 }

@@ -4,7 +4,7 @@
     <div class="flex flex-col items-start mt-5 mb-6">
            <div class="flex items-center">
                <i class="fas fa-user pr-3"></i>
-        <input type="text" id="email" wire:model="name" name="name" placeholder="Name" autocomplete="off" class="bg-transparent outline-none border-b-2">
+        <input type="text" id="name" wire:model="name" name="name" placeholder="Name" autocomplete="off" class="bg-transparent outline-none border-b-2">
              </div>
                @error('name')
         <span class="text-xs text-red-400">{{$message}}</span>
@@ -32,7 +32,7 @@
     <div class="flex flex-col items-start mb-6">
           <div class="flex items-center">
               <i class="fas fa-unlock pr-3"></i>
-        <input type="password" name="password_confirmation" id="password" wire:model="password_confirmation" placeholder="Confirm_Password" autocomplete="off" class="   bg-transparent outline-none border-b-2">
+        <input type="password" name="password_confirmation" id="password_confirm" wire:model="password_confirmation" placeholder="Confirm_Password" autocomplete="off" class="   bg-transparent outline-none border-b-2">
               </div>
               @error('password_confirmation')
         <span class="text-xs text-red-400">{{$message}}</span>

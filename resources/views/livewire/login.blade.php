@@ -4,7 +4,7 @@
     <div class="flex flex-col items-start mt-5 mb-5">
         <div class="flex items-center">
             <i class="fas fa-user pr-3"></i>
-        <input type="text" id="email" wire:model="email" name="email" placeholder="Email" autocomplete="off" class="bg-transparent outline-none border-b-2">
+        <input type="text" id="email" wire:model="email" name="email" placeholder="Email" autocomplete="off" class="bg-transparent outline-none border-b-2 w-full">
         </div>
         @error('email')
         <span class="text-xs text-red-400">{{$message}}</span>
@@ -17,7 +17,7 @@
     <div class="flex flex-col items-start mb-5">
         <div class="flex items-center">
             <i class="fas fa-unlock-alt pr-3"></i>
-        <input type="password" name="password" id="password" wire:model="password" placeholder="Password" autocomplete="off" class="   bg-transparent outline-none border-b-2">
+        <input type="password" name="password" id="password" wire:model="password" placeholder="Password" autocomplete="off" class="   bg-transparent outline-none border-b-2 w-full">
         </div>
         @error('password')
         <span class="text-xs text-red-400">{{$message}}</span>

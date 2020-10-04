@@ -33,3 +33,9 @@
     font-size: clamp(16px,1.3vw,24px);
     font-weight: bold;
 }
+.fluid_text_sm{
+    font-size: clamp(0.9em,1.2vw,1.8em);
+}
+.custom_padding{
+    padding:clamp(1em,3vw,5em);
+}

@@ -1,44 +1,11 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/customcss/customcss.css') }}" rel="stylesheet">
-
-    <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
-    @livewireStyles
-    <style>
-        .hide{
-            display: none;
-        }
-    </style>
-</head>
-<body class=" font-poppins overflow-y-auto sm:overflow-hidden h-screen m-0"  >
-@auth
-{{--    <div id="app"></div>--}}
-
-    <div class="h-full bg-transparent w-full">
-        <div class="w-full p-0 sm:p-10 h-full inline-block sm:block">
-            <div class="w-full py-5 rounded-none sm:rounded-lg shadow-xl px-5 h-auto sm:h-full flex flex-col sm:flex-row md:flex-row lg:flex-row bg-background ">
-                <div class="h-full w-full sm:w-1/3">
-                    <form id="checkout-form" class="h-full rounded-lg bg-lightwhite flex flex-col justify-between" x-data="{first_name: '' , last_name:'' , email:'',ph_no:''}">
+@extends('layouts.home_layout')
+@section('content')
+    <div class="h-full bg-soft_pink rounded-custom w-full p-1">
+        <div class="w-full h-full inline-block sm:block">
+            <div class="w-full py-5 rounded-none shadow-xl px-5 h-auto sm:h-full flex flex-col sm:flex-row md:flex-row lg:flex-row bg-transparent sm:rounded-custom">
+                <div class="h-full w-full sm:w-1/3 ">
+                   <div class="h-full w-full p-1 bg-redme rounded-lg">
+                    <form id="checkout-form" class="h-full rounded-lg bg-white flex flex-col justify-between" x-data="{first_name: '' , last_name:'' , email:'',ph_no:''}">
                         @csrf
 
                         <div class="flex flex-col">
@@ -91,15 +58,15 @@
                             <i class="fas fa-circle-notch fa-spin fa-2x text-blue-600 hide" id="spinner"></i>   Pay
                         </button>
                     </form>
+                   </div>
                 </div>
                 @livewire('checkout')
             </div>
         </div>
     </div>
-@endauth
+@endsection
 
-@livewireScripts
-@include('sweetalert::alert')
+@push('scripts')
 <script src="https://js.stripe.com/v3/"></script>
 <script>
     function ValidateEmail(mail)
@@ -217,5 +184,11 @@
         });
     });
 </script>
-</body>
-</html>
+@endpush
+ @push('styles')
+     <style>
+         .hide{
+             display: none !important;
+         }
+     </style>
+     @endpush

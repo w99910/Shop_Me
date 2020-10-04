@@ -44,6 +44,7 @@ class Purchase extends Component
     }
     public function mount(Product $product)
     {
+
         $this->selectcart=new Cart();
         $this->product = $product;
         $user = auth()->user();

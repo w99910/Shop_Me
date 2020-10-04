@@ -62,7 +62,7 @@
                             <li><a href="{{route('signup')}}" class=" fluid_text_md px-1 sm:px-2 mx-1 border-b-4 border-transparent hover:border-redme">Sign Up</a> </li>
                         @endguest
                         @auth
-                            <li><a href="{{route('home')}}" class=" fluid_text_md px-1 sm:px-2 mx-1 border-b-4 border-transparent hover:border-redme">Home</a></li>
+                            <li><a href="{{route('home')}}" class=" fluid_text_md px-1 sm:px-2 mx-1 border-b-4 border-transparent hover:border-redme">Shop</a></li>
 
                         @endauth
                     </ul>

@@ -72,7 +72,7 @@ Route::group(['prefix' => '2fa'],function() {
 //    return view('auth.2fa_verify');
 //    })->middleware('2fa');
 
-Route::view('intro','intro');
+Route::view('intro','intro')->name('intro');
 
 Route::get('login/{name}', [\App\Http\Controllers\UserController::class, 'redirectToProvider']);
 Route::get('login/{name}/callback', [\App\Http\Controllers\UserController::class, 'handleProviderCallback']);

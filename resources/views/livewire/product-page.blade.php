@@ -24,25 +24,25 @@
         <table class="w-full flex flex-wrap">
     <thead class="flex w-full">
     <tr class="flex w-full">
-        <th class="px-1 py-2 w-1/12 tb-data">ID</th>
-        <th class="px-1 sm:px-4 py-2 sm:w-2/12">Name</th>
-        <th class="px-1 sm:px-4 py-2 sm:w-1/12">Price</th>
-        <th class="px-1 sm:px-4 py-2 w-1/12 sm:w-2/12 truncate tb-data">Quantity</th>
-        <th class="px-1 sm:px-4 py-2 w-3/12 truncate tb-data">Image_Path</th>
-        <th class="px-1 sm:px-4 py-2 truncate">Discount</th>
-        <th class="px-1 sm:px-4 py-2 ">Action</th>
+        <th class="px-1 py-2 w-1/12 tb-data  text-center" >ID</th>
+        <th class="px-1 sm:px-4 py-2  w-2/12 text-center" >Name</th>
+        <th class="px-1 sm:px-4 py-2 w-2/12  sm:w-1/12 text-center" >Price</th>
+        <th class="px-1 sm:px-4 py-2 w-1/12 sm:w-2/12 truncate tb-data text-center" >Quantity</th>
+        <th class="px-1 sm:px-4 py-2 w-3/12 truncate tb-data text-center" >Image_Path</th>
+        <th class="px-1 sm:px-4 py-2 w-4/12 sm:w-3/12 sm:w-auto truncate text-center" >Discount</th>
+        <th class="px-1 sm:px-4 py-2 w-3/12  text-center" >Action</th>
     </tr>
     </thead>
     <tbody class="flex flex-col w-full mt-4">
     @foreach($products as $product)
         <tr class="flex w-full">
-            <td class="border px-1 py-2 sm:w-1/12 text-center h-16 tb-data">{{$product->id}}</td>
-            <td class="border px-1 py-2 sm:w-2/12 overflow-auto text-center  h-16">{{$product->name}}</td>
-            <td class="border px-1 py-2 sm:w-1/12 text-center h-16">{{$product->price}}</td>
+            <td class="border px-1 py-2  sm:w-1/12 text-center h-16 tb-data">{{$product->id}}</td>
+            <td class="border px-1 py-2 w-2/12 overflow-auto text-center  h-16">{{$product->name}}</td>
+            <td class="border px-1 py-2 w-2/12 sm:w-1/12 text-center h-16">{{$product->price}}</td>
 {{--            <td class="border px-1 py-2 truncate w-2/12 text-center h-16">{!! $product->available?'<span class="text-green-300">Available</span>':'<span class="text-red-300" >Not Available</span>'!!}</td>--}}
-            <td class="border px-1 py-2 sm:w-1/12 sm:w-2/12 text-center h-16 tb-data">{{$product->quantity}}</td>
+            <td class="border px-1 py-2 w-1/12 sm:w-2/12 text-center h-16 tb-data">{{$product->quantity}}</td>
             <td class="border px-1 py-2 overflow-auto w-3/12 h-16 tb-data">{{$product->image_path ?? ''}}</td>
-            <td class="border px-1 py-2 text-center h-16 flex flex-col sm:flex-row">
+            <td class="border px-1 py-2 text-center h-16 flex flex-col sm:flex-row w-4/12 sm:w-3/12">
                 <span class="sm:px-2 sm:py-1 bg-alert rounded-lg" >{{$product->discounts->first()->name?? 'No Discount'}}
             </span><button class="focus:outline-none text-red-400 text-sm sm:text-md {{$product->discounts->first() === null ?'hidden':''}}" wire:click="removeDiscount({{$product->id}})">Remove?</button></td>
             <td class="border px-1 py-2 flex  justify-center text-white h-16">

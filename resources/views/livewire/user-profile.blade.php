@@ -1,10 +1,4 @@
 <div class="h-full w-full px-5 py-3 bg-soft_pink flex rounded-custom">
-    <div class="absolute top-0 left-0 mt-4 ml-4">
-        <a href="{{route('home')}}" class="focus:outline-none">
-            <svg id="color" enable-background="new 0 0 24 24" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12 12-5.383 12-12-5.383-12-12-12z" fill="#2196f3"/><path d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12z" fill="#1d83d4"/><path d="m10.73 18.791-6.5-6.25c-.147-.142-.23-.337-.23-.541s.083-.399.23-.541l6.5-6.25c.475-.458 1.27-.119 1.27.541v3.25h5.75c.689 0 1.25.561 1.25 1.25v3.5c0 .689-.561 1.25-1.25 1.25h-5.75v3.25c0 .664-.798.995-1.27.541z" fill="#fff"/><path d="m19 12h-15c0 .204.083.399.23.541l6.5 6.25c.15.145.334.21.514.21.385-.001.756-.299.756-.751v-3.25h5.75c.689 0 1.25-.561 1.25-1.25z" fill="#dedede"/></svg>
-        </a>
-
-    </div>
      <div class="w-full sm:p-5 flex flex-col sm:flex-row">
          <div class="w-full sm:w-1/2 sm:p-1 h-full bg-background rounded-xl sm:mr-5">
              <div class="flex flex-col w-full px-4 justify-around py-3 bg-hard_green text-white rounded-xl h-full">

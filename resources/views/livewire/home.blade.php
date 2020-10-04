@@ -18,12 +18,13 @@
                     @endforeach
                 </select>
             </div>
-          <span class="flex items-center justify-center cursor-pointer" x-on:click="toggleFilter">
-              <img src="{{asset('images/filter.white.png')}}" alt="filter" class="w-6 h-6" x-on:click=" toggleFilter">
-          </span>
+
       </div>
 
         <div class="mt-3 sm:pr-5 flex sm:mt-0 justify-center items-center ">
+            <span class="flex items-center justify-center cursor-pointer mr-3" x-on:click="toggleFilter">
+              <img src="{{asset('images/filter.white.png')}}" alt="filter" class="w-6 h-6" x-on:click=" toggleFilter">
+          </span>
             <span class="font-bold text-alert mr-2 tracking-wider">${{auth()->user()->total_charge}}.00</span>
             <div class="flex flex-col p-2 rounded-xl bg-white mr-3 pt-3" x-on:click="isDrop = !isDrop" x-on:click.away="isDrop = false" >
 

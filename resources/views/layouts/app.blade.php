@@ -40,7 +40,7 @@
 <body class="font-poppins h-0 max-h-screen min-h-screen overflow-hidden">
 <div class="bg-background h-full flex justify-center items-center">
 @guest
-        <main class="h-full flex py-24 w-8/12 relative items-center justify-center">
+        <main class="h-full flex py-24 w-full px-2 sm:px-0 sm:w-8/12 relative items-center justify-center">
                         @yield('content')
         </main>
         @endguest

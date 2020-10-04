@@ -27,7 +27,7 @@
             <span class="flex items-center justify-center cursor-pointer mr-3" x-on:click="toggleFilter">
               <img src="{{asset('images/filter.white.png')}}" alt="filter" class="w-6 h-6" x-on:click=" toggleFilter">
           </span>
-          @if(empty(auth()->user()->carts))
+          @if(auth()->user()->carts->isEmpty())
                 <span class="font-bold text-alert mr-2 tracking-wider">$0.00</span>
             @else
                 <span class="font-bold text-alert mr-2 tracking-wider">${{auth()->user()->total_charge}}.00</span>

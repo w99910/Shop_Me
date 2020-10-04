@@ -27,19 +27,19 @@
     if(data){
         console.log(JSON.stringify(data));
     }
-    if(data[0]==''){
+    if(data[0].trim() ===''){
     Swal.fire({
     icon: 'warning',
     text: 'Product Name is required.'
 });
 }
-    else if(data[1]==''){
+    else if(data[1].trim()===''){
     Swal.fire({
     icon: 'warning',
     text: 'Product Price is required.'
 });
 }
-    else if(data[2] == '')
+    else if(data[2].trim() === '')
 {
     Swal.fire({
     icon: 'warning',
@@ -121,7 +121,8 @@
 //         if(ipAddress[0]==''&&ipAddress[1]==''){
 
 // }
-        if(ipAddress[0]===''&&ipAddress[1]===''&&ipAddress[2]==='0'){
+//         console.log(ipAddress[0].trim()==='')
+        if(ipAddress[0].trim()===''&&ipAddress[1].trim()===''&&ipAddress[2].trim()==='0'){
             Swal.fire({
                 icon: 'warning',
                 text:"You must write something!!"});

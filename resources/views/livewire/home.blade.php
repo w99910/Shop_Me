@@ -27,7 +27,12 @@
             <span class="flex items-center justify-center cursor-pointer mr-3" x-on:click="toggleFilter">
               <img src="{{asset('images/filter.white.png')}}" alt="filter" class="w-6 h-6" x-on:click=" toggleFilter">
           </span>
-            <span class="font-bold text-alert mr-2 tracking-wider">${{auth()->user()->total_charge}}.00</span>
+          @if(empty(auth()->user()->carts))
+                <span class="font-bold text-alert mr-2 tracking-wider">$0.00</span>
+            @else
+                <span class="font-bold text-alert mr-2 tracking-wider">${{auth()->user()->total_charge}}.00</span>
+
+            @endif
             <div class="flex flex-col p-2 rounded-xl bg-white mr-3 pt-3" x-on:click="isDrop = !isDrop" x-on:click.away="isDrop = false" >
 
                 <div class="flex cursor-pointer"> <i class="fas fa-shopping-cart"></i>

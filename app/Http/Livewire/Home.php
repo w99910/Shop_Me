@@ -74,7 +74,7 @@ class Home extends Component
         $user=auth()->user();
         $selectedcart=Cart::find($id);
         $selectedcart->delete();
-        $this->emitSelf('refresh');
+        $this->carts=$user->carts;
     }
     public function newest(){
         $products=Product::whereHas('categories',function(Builder $query){

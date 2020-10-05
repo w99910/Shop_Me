@@ -24,7 +24,12 @@
   <component name="ChangeListManager">
     <list default="true" id="212ae468-a981-475e-8040-3d1939ad4d46" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/product-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/product-page.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/password-oauth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/password-oauth.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/purchase.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/purchase.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/user-profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user-profile.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -365,7 +370,8 @@
       <workItem from="1601700682089" duration="21707000" />
       <workItem from="1601735224240" duration="5984000" />
       <workItem from="1601791547663" duration="17240000" />
-      <workItem from="1601814935084" duration="17819000" />
+      <workItem from="1601814935084" duration="17971000" />
+      <workItem from="1601860355148" duration="9112000" />
     </task>
     <servers />
   </component>
@@ -441,10 +447,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="324" y="90" width="700" height="530" key="recent.locations.popup/0.0.1366.728@0.0.1366.728" timestamp="1599102530772" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1601820104578">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1601866966698">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1601820104578" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1601866966698" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

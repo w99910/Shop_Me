@@ -5,13 +5,13 @@
                <table class="table-fixed h-1/2 w-full">
                      <tbody>
                      <tr class="py-2">
-                         <td>Name:</td><td>{{$user->name}}</td><td><button class="px-2 py-2 rounded-lg bg-logout" id="name">Change Name</button></td>
+                         <td>Name:</td><td>{{$user->name}}</td><td><button class="px-2 py-2 rounded-lg bg-logout hover:bg-cello-500" id="name">Change Name</button></td>
                      </tr>
                      <tr class="py-2">
-                         <td>Email:</td><td>{{$user->email}}</td><td><button class="px-2 py-2 rounded-lg bg-logout" id="email">Change Email</button></td>
+                         <td>Email:</td><td>{{$user->email}}</td><td><button class="px-2 py-2 rounded-lg bg-logout hover:bg-cello-500" id="email">Change Email</button></td>
                      </tr>
                      <tr class="py-2">
-                         <td>Password:</td><td> ------- </td><td><button class="px-2 py-1 rounded-lg bg-logout" id="password">Change Password</button></td>
+                         <td>Password:</td><td> ------- </td><td><button class="px-2 py-1 rounded-lg bg-logout hover:bg-cello-500" id="password">Change Password</button></td>
                      </tr>
                      </tbody>
 
@@ -48,8 +48,8 @@
                </table>
            </div>
              </div>
-           <div class="w-full sm:h-1/2 h-full bg-background rounded-xl p-1">
-               <div class="w-full h-full bg-hard_orange rounded-xl p-2">
+           <div class="w-full sm:h-1/2 h-full bg-background rounded-xl p-1 overflow-hidden">
+               <div class="w-full h-full bg-hard_orange rounded-xl p-2 overflow-auto">
                <table class="table-fixed text-redme w-full h-full">
                    <thead>
                   <tr><span class="text-xl font-bold text-redme">Your Invoice History</span></tr>
@@ -76,6 +76,15 @@
 </div>
 @push('scripts')
   <script>
+      function ValidateEmail(mail)
+      {
+          if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail))
+          {
+              return true;
+          }
+
+          return false;
+      }
       document.getElementById('name').addEventListener('click', async()=>  {
           const {value:name}=await Swal.fire({
                title:'Change Name',
@@ -105,8 +114,14 @@
               } ,
               showCancelButton: true,
           });
-          if(email){
+          if(email&&ValidateEmail(email)){
               window.livewire.emit('changeEmail',email[0]); }
+          else {
+              Swal.fire({
+                 icon:'error',
+                 text:'Enter Valid Email',
+              })
+          }
       });
       document.getElementById('password').addEventListener('click', async()=>  {
           const {value:password}=await Swal.fire({

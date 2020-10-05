@@ -185,7 +185,7 @@
                   </div>
               <div class="flex flex-col sm:w-3/12 items-center justify-center px-2">
                   <div class="flex sm:flex-col flex-row items-center justify-center">
-                          <button class="w-full text-center sm:py-4 sm:text-md h-full mx-1 rounded-lg bg-indigo-800 hover:bg-indigo-700 focus:outline-none text-white " wire:click="add({{$product->id}},{{$product->price}})">Add to Cart</button>
+                          <button class="w-full text-center py-4 sm:text-md h-full mx-1 rounded-lg bg-indigo-800 hover:bg-indigo-700 focus:outline-none text-white " wire:click="add({{$product->id}},{{$product->price}})">Add to Cart</button>
                           <a class="w-full text-center sm:py-4 sm:mt-3 text-redme h-full mx-1 rounded-lg bg-alert hover:bg-orange-500 text-center focus:outline-none"  href="{{route('checkout')}}">Proceed to Checkout</a>
                   </div>
 

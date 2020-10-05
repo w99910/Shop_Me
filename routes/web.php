@@ -78,3 +78,8 @@ Route::view('intro','intro')->name('intro');
 Route::get('login/{name}', [\App\Http\Controllers\UserController::class, 'redirectToProvider']);
 Route::get('login/{name}/callback', [\App\Http\Controllers\UserController::class, 'handleProviderCallback']);
 Route::view('user_profile','user_profile')->name('user_profile')->middleware('auth');
+
+//Route::get('/password_test',function (){
+//   $auth_user=\App\User::find(1);
+//   return view('auth.passwords.password_oauth',compact('auth_user'));
+//});

@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/fontawesome.css') }}" rel="stylesheet">
     <style>
         *{
             margin:0;
@@ -50,7 +50,7 @@
     </style>
 </head>
 <body class="font-poppins antialiased overflow-x-hidden" style="scroll-behavior: smooth;">
-<main class="customer absolute min-h-screen overflow-x-hidden min-w-full top-0 left-0 flex flex-col" id="body_scroll">
+<main class="customer absolute min-h-screen overflow-x-hidden sm:min-w-full top-0 left-0 flex flex-col" id="body_scroll">
     <div class="landing bg-soft_pink min-h-screen items-center justify-between flex flex-col relative  text-redme" id="page1">
         <div class="relative w-full flex justify-between items-center pt-2 sm:pt-6 overflow-hidden px-4 sm:px-24">
             <span class="shopme font-dancing fluid_text_xl inline-block">ShopMe</span>
@@ -109,7 +109,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full sm:w-1/2 h-full relative flex justify-center items-center bg-redme">
+        <div class="w-full sm:w-1/2 sm:h-full relative flex justify-center items-center bg-redme">
             <img src="{{asset('images/Online_shopping_PNG.png')}}" class="page3_image w-7/12" alt="discount"/>
         </div>
 

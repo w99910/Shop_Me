@@ -23,37 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="212ae468-a981-475e-8040-3d1939ad4d46" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Mail/templates.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/maileclipse.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/css/maileclipse-app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/css/maileclipse-app.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/airmail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/cerberus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/cleave.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/go.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/goldstar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/mantra.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/meow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/narrative.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/neopolitan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/oxygen.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/plain.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/skyline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/sunday.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/html/zenflat.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/markdown/plain.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/markdown/postmark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/images/skeletons/no-image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/maileclipse/js/maileclipse-app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/maileclipse/templates/.gitkeep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/e-commerce.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/e-commerce.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Invoice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/Invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/Invoice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/intro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/intro.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/mails/invoice_paid.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mails/invoice_paid.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -396,7 +367,8 @@
       <workItem from="1601735224240" duration="5984000" />
       <workItem from="1601791547663" duration="17240000" />
       <workItem from="1601814935084" duration="17971000" />
-      <workItem from="1601860355148" duration="29872000" />
+      <workItem from="1601860355148" duration="30377000" />
+      <workItem from="1601901475177" duration="1590000" />
     </task>
     <servers />
   </component>

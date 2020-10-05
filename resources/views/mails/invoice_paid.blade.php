@@ -70,11 +70,10 @@
     </style>
 </head>
 <body style=" font-family: 'Poppins', sans-serif;">
-<h2>ShopMe</h2>
 <div style=" width: 100%; ">
-
-           <h3>Hello....Your payment has been successfully received</h3>
-        <h4>Here is your Invoice</h4>
+           <h2>Hello, This is admin from ShopMe ... I hope you are doing well</h2>
+           <h3>Yay !!! You just checkout successfully .</h3>
+        <h4>Here is your Invoice .</h4>
        </div>
        {{--        <div class="table-row">--}}
 
@@ -85,7 +84,7 @@
 {{--        </div>--}}
         <div style="overflow-x:auto;">
             <table>
-                <tr>
+                <tr style="background-color: #f2f2f2">
                     <th>Product Name</th>
                     <th>Quantity</th>
                     <th>Price</th>
@@ -94,12 +93,12 @@
                 <tr>
                   <td>{{$cart->product->name}}</td>
                   <td>{{$cart->quantity}}</td>
-                  <td>{{$cart->price}}</td>
+                  <td>${{$cart->price}}</td>
                 </tr>
                 @endforeach
-                <tr>
+                <tr style="background-color: #f2f2f2">
                     <td>Total Charge</td>
-                <td>{{$total_price}}</td>
+                <td>${{$total_price}}</td>
                 <td></td>
                 </tr>
             </table>

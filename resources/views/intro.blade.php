@@ -164,10 +164,10 @@
     {{--           </div>--}}
     <div class="intro-text text-2xl  flex flex-col text-center justify-center items-center text-redme">
         <h1 class="hide">
-            <span class="my_text">Hello from 'ShopMe'</span>
+            <span class="my_text">Hello from ShopMe</span>
         </h1>
         <h1 class="hide">
-            <span class="my_text">Ease your shopping online with 'ShopMe'</span>
+            <span class="my_text">Ease your shopping online with ShopMe</span>
         </h1>
 
 

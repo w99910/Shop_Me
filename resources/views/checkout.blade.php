@@ -1,8 +1,8 @@
 @extends('layouts.home_layout')
 @section('content')
-    <div class="h-full bg-soft_pink rounded-custom w-full p-1">
+    <div class="h-screen bg-soft_pink rounded-custom w-full p-1">
         <div class="w-full h-full inline-block sm:block">
-            <div class="w-full py-5 rounded-none shadow-xl sm:px-5 px-1 h-auto sm:h-full flex flex-col sm:flex-row md:flex-row lg:flex-row bg-transparent sm:rounded-custom">
+            <div class="w-full py-5 rounded-none shadow-xl sm:px-5 px-1 h-full flex flex-col sm:flex-row md:flex-row lg:flex-row bg-transparent sm:rounded-custom">
                 <div class="h-full w-full sm:w-1/3 ">
                    <div class="h-full w-full p-1 bg-redme rounded-lg" x-data="my_data()" x-init="init">
                     <form id="checkout-form" class="h-full rounded-lg bg-white flex flex-col justify-between" >
@@ -170,8 +170,9 @@
                     icon:'warning',
                     text:'There is no product in your cart'
                 })
-            } else
-                if (firstname.value.trim()===''&&lastname.value.trim()===''&&email.value.trim()===''&&ph_no.value.trim()==='')
+
+            }
+             else if (firstname.value.trim()===''&&lastname.value.trim()===''&&email.value.trim()===''&&ph_no.value.trim()==='')
         {
             Swal.fire({
                 icon:"error",

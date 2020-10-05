@@ -196,8 +196,8 @@
              <div class="absolute top-0 w-full left-0 -mt-10 text-center"><i class="svg-indicator fas fa-chevron-circle-up text-redme text-4xl bg-white rounded-full cursor-pointer" x-on:click="toggleSuggest"></i></div>
           <div class="container w-full p-3 flex bg-soft_pink h-full rounded-xl flex-col flex-wrap overflow-auto overflow-y-hidden custom_scrollbar">
               @foreach($suggestions as $suggestion)
-                  <div class="h-full w-10/12 sm:w-3/12 bg-redme rounded-xl mr-3">
-                      <img src="{{url($suggestion->image_path)}}" alt="{{$suggestion->name}}" class="w-full bg-cover object-center cursor-pointer" wire:click="purchase_page({{$suggestion->id}})">
+                  <div class="h-full w-10/12 sm:w-3/12 bg-redme rounded-xl mr-3 flex">
+                      <img src="{{url($suggestion->image_path)}}" alt="{{$suggestion->name}}" class="w-auto bg-cover object-center cursor-pointer" wire:click="purchase_page({{$suggestion->id}})">
                   </div>
               @endforeach
           </div>

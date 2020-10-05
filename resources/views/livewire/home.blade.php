@@ -74,7 +74,7 @@
                     <div class="flex h-full sm:flex-row flex-col items-center justify-between px-2 sm:px-0 py-1 pl-2 sm:pl-0">
                         <div class="flex sm:flex-col justify-between w-full">
                             <p class="break-words">{{$product->name}}</p>
-                            <p>{{$product->price}}$</p>
+                            <p class="text-alert">${{$product->price}}</p>
                         </div>
 
                         <div class="flex w-full justify-between items-center sm:px-2 mt-2 sm:mt-0">
@@ -103,7 +103,7 @@
                         <div class="flex h-full sm:flex-row flex-col items-center justify-between px-2 sm:px-0 py-1 pl-2 sm:pl-0">
                             <div class="flex sm:flex-col justify-between w-full">
                                 <p class="break-words">{{$product->name}}</p>
-                                <p>{{$product->price}}$</p>
+                                <p class="text-alert">${{$product->price}}</p>
                             </div>
 
                             <div class="flex w-full justify-between items-center sm:px-2 mt-2 sm:mt-0">

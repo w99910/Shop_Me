@@ -49,7 +49,7 @@
         }
     </style>
 </head>
-<body class="font-poppins antialiased" style="scroll-behavior: smooth;">
+<body class="font-poppins antialiased overflow-x-hidden" style="scroll-behavior: smooth;">
 <main class="customer absolute min-h-screen min-w-full top-0 left-0 flex flex-col" id="body_scroll">
     <div class="landing bg-soft_pink min-h-screen items-center justify-between flex flex-col relative  text-redme" id="page1">
         <div class="relative w-full flex justify-between items-center pt-2 sm:pt-6 overflow-hidden px-4 sm:px-24">
@@ -164,10 +164,10 @@
     {{--           </div>--}}
     <div class="intro-text text-2xl  flex flex-col text-center justify-center items-center text-redme">
         <h1 class="hide">
-            <span class="my_text">Hello from ShopMe</span>
+            <span class="my_text">Hello from 'ShopMe'</span>
         </h1>
         <h1 class="hide">
-            <span class="my_text">Ease your shopping online with Ours</span>
+            <span class="my_text">Ease your shopping online with 'ShopMe'</span>
         </h1>
 
 

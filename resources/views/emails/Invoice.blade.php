@@ -4,12 +4,16 @@
 Your Invoice Detail
 @component('mail::table')
     | Your item Name| Quantity      | Price |
-    | ------------- |:-------------:| --------:|
+@endcomponent
+
    @foreach($carts as $cart)
-    |      {{$cart->product->name}}     |     {{$cart->quantity}}         |     {{$cart->price}}   |
+       @component('mail::table')
+     | {{$cart->product->name}}| {{$cart->price}}|
+       @endcomponent
    @endforeach
-    |               | Total Charge  |     {{$total_price}}
-    @endcomponent
+@component('mail::table')
+             |Total Charge   |  {{$total_price}} |
+@endcomponent
 
 
 Thanks,<br>

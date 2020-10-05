@@ -32,6 +32,7 @@ class Invoice extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.Invoice');
+//        return $this->markdown('emails.Invoice');
+        return $this->view('mails.invoice_paid');
     }
 }

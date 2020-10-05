@@ -6,36 +6,105 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'E-Commerce') }}</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+
+       body{
+           font-family: 'Poppins', sans-serif;
+       box-sizing: border-box;
+       margin:0;
+       padding:0;
+       }
+        .h-screen{
+            min-height:100vh;
+
+        }
+        .w-full{
+            min-width: 100vw;
+        }
+        .justify-center{
+            justify-content: center;
+        }
+        .items-center{
+            align-items: center;
+        }
+        .flex{
+            display: flex;
+        }
+        .w-1-3{
+        width:33%;
+        }
+        .flex-col{
+            flex-direction: column;
+        }
+        .bg-white{
+            background-color: white;
+        }
+        .overflow-hidden{
+            overflow:hidden;
+        }
+        .px-16{
+            padding-left:16px ;
+            padding-right:16px ;
+        }
+          .bg-green-400{
+              background-color: #0c5460;
+          }
+          .p-3 {
+              padding:3px;
+          }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+    </style>
 </head>
-<body class="h-screen w-full overflow-hidden justify-center items-center flex font-poppins">
-    <div class="w-1/3 h-full flex flex-col justify-center bg-white px-16">
-   <div class="w-full p-3 bg-green-400">Your Payment has been successfully paid</div>
-    <div class="table bg-gray-300">
-        <div class="table-row">
+<body style=" font-family: 'Poppins', sans-serif;">
+<h2>ShopMe</h2>
+<div style=" width: 100%; ">
 
-            <div class="table-cell px-2 py-1 border border-white border-2">Item Name</div>
-            <div class="table-cell px-2 py-1 border border-white border-2">Item Quantity</div>
+           <h3>Hello....Your payment has been successfully received</h3>
+        <h4>Here is your Invoice</h4>
+       </div>
+       {{--        <div class="table-row">--}}
 
-            <div class="table-cell px-2 py-1 border border-white border-2">Item Price</div>
+{{--            <div class="table-cell px-2 py-1 border border-white border-2">Item Name</div>--}}
+{{--            <div class="table-cell px-2 py-1 border border-white border-2">Item Quantity</div>--}}
+
+{{--            <div class="table-cell px-2 py-1 border border-white border-2">Item Price</div>--}}
+{{--        </div>--}}
+        <div style="overflow-x:auto;">
+            <table>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+              @foreach($carts as $cart)
+                <tr>
+                  <td>{{$cart->product->name}}</td>
+                  <td>{{$cart->quantity}}</td>
+                  <td>{{$cart->price}}</td>
+                </tr>
+                @endforeach
+                <tr>
+                    <td>Total Charge</td>
+                <td>{{$total_price}}</td>
+                <td></td>
+                </tr>
+            </table>
         </div>
-        @foreach($carts as $cart)
-        <div class="table-row">
-            <div class="table-cell px-2 py-1 border border-white border-2">{{$cart->product->name}}</div>
-            <div class="table-cell px-2 py-1 border border-white border-2">{{$cart->quantity}}</div>
+<h4>Thanks You .... Have a great day!!</h4>
 
-            <div class="table-cell px-2 py-1 border border-white border-2">{{$cart->price}}</div>
-        </div>
-            @endforeach
-        <div class="table-row">
-
-            <div class="table-cell px-2 py-1 border border-white border-2"></div>
-            <div class="table-cell px-2 py-1 border border-white border-2">Total</div>
-
-            <div class="table-cell px-2 py-1 border border-white border-2">{{$total_price}}</div>
-        </div>
-    </div>
-</div>
 </body>
 </html>

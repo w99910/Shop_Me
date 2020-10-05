@@ -41,12 +41,16 @@ class AdminController extends Controller
         $user_chart=new RevenueChart;
         $user_chart->labels($invoice_user->keys());
         $user_chart->dataset('User Id','line',$invoice_user->values());
+        $user_chart->title('Invoice sorted by User');
+
+
 
         $chart->labels($revenues->keys());
         $chart->dataset('Current Revenue','doughnut',$revenues->values())
             ->color($borderColors)
             ->backgroundcolor($fillColors);
-        $chart->minimalist(true);
+
+        $chart->title('Income sorted by Date')->displayAxes(false);
         return view('page.dashboard')->with(compact('chart','user_chart'));
     }
     public function get(){

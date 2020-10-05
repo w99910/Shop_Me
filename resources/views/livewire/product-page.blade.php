@@ -2,7 +2,7 @@
     @if (session()->has('message'))
         <div class="bg-red-400 px-2 py-1 z-100 fixed w-full sm:w-1/4 right-0 top-0 flex justify-between items-center rounded-lg mx-2 my-2 shadow-xl" id="model-toast1">
             <p class="text-xs"> {{ session('message') }}</p>
-            <button onclick="document.getElementById('model-toast1').style.display='none'"  class="px-3 py-2 focus:outline-none " id="button_click"><i class="fas fa-times"></i></button>
+            <button onclick="document.getElementById('model-toast1').style.display='none'"  class="px-3 py-2 focus:outline-none "><i class="fas fa-times"></i></button>
         </div>
         {{session()->forget('message')}}
     @elseif(session()->has('toast'))
@@ -15,7 +15,8 @@
     <div class="flex justify-between items-center">
       <div class="flex flex-col sm:flex-row w-full sm:justify-between">
           <div class="flex w-full sm:w-auto justify-between my-4 sm:my-0">
-        <button wire:click="$emit('createpost')" class="px-2 py-1 sm:px-3 sm:py-2 bg-green-500 rounded-lg sm:rounded-custom text-white focus:outline-none sm:mx-2">Create Product</button>
+
+              <button wire:click="$emit('createpost')" class="px-2 py-1 sm:px-3 sm:py-2 bg-green-500 rounded-lg text-center items-center flex sm:rounded-custom text-white focus:outline-none sm:mx-2" id="create_product"> <i class="fas fa-circle-notch fa-spin fa-2x mr-2 text-blue-700 hide" id="spinner"></i>Create Product</button>
            <a href="{{route('product_export')}}"class="px-2 py-1 sm:px-3 sm:py-2 bg-yellow-500 rounded-lg sm:rounded-custom text-white focus:outline-none" >Export</a>
        </div>
            <input type="text" wire:model="search" placeholder="Search by Name" class="border-b-2 border-gray-300 focus:outline-none">  </div>
@@ -75,6 +76,7 @@
 
             })
         })
+
     </script>
 @endpush
 @push('styles')
@@ -83,6 +85,9 @@
                 .tb-data{
                     display: none;
                 }
+            }
+            .hide{
+                display: none;
             }
         </style>
     @endpush

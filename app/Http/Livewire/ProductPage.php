@@ -69,6 +69,7 @@ class ProductPage extends Component
         $product->image_path=$url;
         $product->save();
         $this->emit('alerting','Successfully Created');
+        $this->emit('removeSpinner');
         session()->flash('toast', 'Proudct '.$product->name.  ' successfully created.');
 
          }

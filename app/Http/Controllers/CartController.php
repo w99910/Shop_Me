@@ -23,6 +23,10 @@ class CartController extends Controller
         return view('checkout',compact('intent'));
     }
         public function processCheckout(Request $request){
+        if(auth()->user()->carts->isEmpty())
+        {
+            return response()->json(['error','There is no product in your cart']);
+        }
             $user=auth()->user();
             $validator=\Validator::make($request->all(),[
                 'first_name'=>'required|alpha',
@@ -30,11 +34,6 @@ class CartController extends Controller
                 'email'=>'required|email',
                 'ph_no'=>'required|regex:/(01)[0-9]{9}/',
             ]);
-            \Log::info('message',$request->all());
-            \Log::info('payment-method',[$request->payment_method]);
-//            \Log::info('payment-method',$request['payment-method']);
-
-
             if($validator) {
                 $payment = $request->payment_method;
                 Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -53,7 +52,7 @@ class CartController extends Controller
                     Revenue::create(['user_id'=>$user->id,'invoice'=>$user->total_charge]);
                     Mail::to($request->email)->send(new \App\Mail\Invoice($user->carts,$user->total_charge));
                     $user->carts()->delete();
-                    return response()->json('success');
+                    return response()->json(['success','Success checkout.Please check your email for more information.']);
                 } catch (Exception $e) {
 
                 }

@@ -164,15 +164,7 @@
             if (paymentMethod) {
                 return true;
             }
-           if ({{auth()->user()->carts->isEmpty()}})
-            {
-                Swal.fire({
-                    icon:'warning',
-                    text:'There is no product in your cart'
-                })
-
-            }
-             else if (firstname.value.trim()===''&&lastname.value.trim()===''&&email.value.trim()===''&&ph_no.value.trim()==='')
+            if (firstname.value.trim()===''&&lastname.value.trim()===''&&email.value.trim()===''&&ph_no.value.trim()==='')
         {
             Swal.fire({
                 icon:"error",
@@ -216,10 +208,9 @@
                     }
                     axios.post('{{route('checkout.process')}}',data).then((res)=>{
                                 spinner.classList.add('hide');
-
                                Swal.fire({
-                                   icon:'success',
-                                   text:'Success checkout.Please check your email for more information.',
+                                   icon:res.data[0],
+                                   text:res.data[1],
                                    toast:true,
                                    position:'top-end',
                                    timer:3000,

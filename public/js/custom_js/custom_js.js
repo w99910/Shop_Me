@@ -62,7 +62,7 @@
         data[4]='1';
     }
     else{
-
+        document.getElementById('spinner').classList.remove('hide');
     var inputfile=document.getElementById("swal-input3");
     let file=inputfile.files[0];
     var t = file.type.split('/').pop().toLowerCase();
@@ -96,10 +96,15 @@
 });
 
 
-    window.livewire.on('alerting',$message=>{
-    console.log($message);
+    window.livewire.on('removeSpinner',()=>{
+        document.getElementById('spinner').classList.add('hide');
+    })
 
-})
+
+//     window.livewire.on('alerting',$message=>{
+//     console.log($message);
+//
+// })
     async function f(i){
     const  { value:ipAddress}=await Swal.fire({
     title: `Editing Product Id ${i}`,

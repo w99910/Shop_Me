@@ -1,14 +1,14 @@
 
 <div class="w-full justify-between flex flex-col  sm:w-8/12 md:w-8/12 lg:w-8/12 h-full items-center mt-4 sm:mt-0 sm:ml-4 bg-redme rounded-xl sm:rounded-custom  p-1 overflow-hidden" x-data="{isMessage:false}">
-  <div class="w-full justify-between flex flex-col h-full items-center bg-white rounded-xl sm:rounded-custom sm:px-4 px-1">
+  <div class="w-full justify-between flex flex-col h-full items-center bg-white rounded-xl sm:rounded-custom sm:px-4">
     <table class="flex flex-col w-full relative overflow-y-auto custom_scrollbar overflow-x-hidden">
         <thead class="w-full">
         <tr class="w-full flex">
-            <th class="px-1 py-2 w-3/12"></th>
-            <th class="px-1 py-2 w-2/12">Item Name</th>
-            <th class="px-1 py-2 w-4/12">Quantity</th>
-            <th class="px-1 py-2 w-1/12">Price</th>
-            <th class="px-1 py-2 w-2/12">Actions</th>
+            <th class="sm:px-1 sm:py-2 w-1/12"></th>
+            <th class="sm:px-1 sm:py-2 w-2/12 truncate">Name</th>
+            <th class="sm:px-1 sm:py-2 w-2/12 truncate">Quantity</th>
+            <th class="sm:px-1 sm:py-2 w-2/12 truncate">Price</th>
+            <th class="sm:px-1 sm:py-2 w-2/12 truncate">Actions</th>
         </tr>
         </thead>
         <tbody>

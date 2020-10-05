@@ -24,22 +24,28 @@
 } ,
     showCancelButton: true,
 });
-    if(data){
-        console.log(JSON.stringify(data));
-    }
+
     if(data[0].trim() ===''){
     Swal.fire({
     icon: 'warning',
     text: 'Product Name is required.'
 });
 }
-    else if(data[1].trim()===''){
+    else if(data[1].trim()===''||isNaN(data[1].trim())){
+
     Swal.fire({
     icon: 'warning',
-    text: 'Product Price is required.'
+    text: 'Enter Valid Price'
 });
 }
-    else if(data[2].trim() === '')
+    else if(data[4].trim()===''||isNaN(data[4].trim())){
+
+        Swal.fire({
+            icon:'warning',
+            text:'Enter Valid Quantity',
+        })
+    }
+    else if(data[2].trim() === '' )
 {
     Swal.fire({
     icon: 'warning',
@@ -60,7 +66,7 @@
     var inputfile=document.getElementById("swal-input3");
     let file=inputfile.files[0];
     var t = file.type.split('/').pop().toLowerCase();
-    console.log(t);
+    // console.log(t);
         if(t!= 'jpg' && t!='png' && t!='jpeg'){
         Swal.fire({
         icon:"error",
@@ -129,7 +135,7 @@
 
         }
        else if(ipAddress){
-       console.log(JSON.stringify(ipAddress));
+       // console.log(JSON.stringify(ipAddress));
     const res=await axios.post(`testing/${i}`,ipAddress);
     // Swal.fire(JSON.stringify(ipAddress));
     const data=res.data;

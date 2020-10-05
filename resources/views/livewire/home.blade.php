@@ -70,15 +70,15 @@
                         @endforeach
                     @endif
                 </div>
-                <div class="bg-semi w-full justify-start bg-white p-0 sm:p-2 rounded-lg text-white h-16">
-                    <div class="flex h-full items-start sm:items-center justify-between py-1 pl-2 sm:pl-0">
-                        <div class="flex flex-col">
+                <div class="bg-semi w-full justify-start bg-white p-0 sm:p-2 rounded-lg text-white">
+                    <div class="flex h-full sm:flex-row flex-col items-center justify-between px-2 sm:px-0 py-1 pl-2 sm:pl-0">
+                        <div class="flex sm:flex-col justify-between w-full">
                             <p class="break-words">{{$product->name}}</p>
                             <p>{{$product->price}}$</p>
                         </div>
 
-                        <div class="flex w-full justify-end px-2 mt-2 sm:mt-0">
-                            <button class="h-full rounded-lg p-1 sm:p-2 mx-2 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="favourite({{$product->id}})">
+                        <div class="flex w-full justify-between items-center sm:px-2 mt-2 sm:mt-0">
+                            <button class="h-full rounded-lg p-1 sm:p-2  focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="favourite({{$product->id}})">
                                 <i class="fas fa-heart text-md sm:text-md {{$product->is_favourite?'text-red-500':'text-black'}}"></i>
                             </button>
                             <button class="h-full rounded-lg p-1 sm:p-2 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="purchase_page({{$product->id}})">
@@ -99,15 +99,15 @@
                             @endforeach
                         @endif
                     </div>
-                    <div class="bg-semi w-full justify-start bg-white p-0 sm:p-2 rounded-lg text-white sm:h-16">
-                        <div class="flex sm:h-full  items-start sm:items-center justify-between  pl-2 sm:pl-0">
-                            <div class="flex flex-col">
+                    <div class="bg-semi w-full justify-start bg-white p-0 sm:p-2 rounded-lg text-white">
+                        <div class="flex h-full sm:flex-row flex-col items-center justify-between px-2 sm:px-0 py-1 pl-2 sm:pl-0">
+                            <div class="flex sm:flex-col justify-between w-full">
                                 <p class="break-words">{{$product->name}}</p>
                                 <p>{{$product->price}}$</p>
                             </div>
 
-                            <div class="flex w-full justify-end px-2">
-                                <button class="h-full rounded-lg p-1 sm:p-2 mx-2 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="favourite({{$product->id}})">
+                            <div class="flex w-full justify-between items-center sm:px-2 mt-2 sm:mt-0">
+                                <button class="h-full rounded-lg p-1 sm:p-2  focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="favourite({{$product->id}})">
                                     <i class="fas fa-heart text-md sm:text-md {{$product->is_favourite?'text-red-500':'text-black'}}"></i>
                                 </button>
                                 <button class="h-full rounded-lg p-1 sm:p-2 focus:outline-none focus:border-blue-300 border shadow-inner z-40 bg-white" wire:click="purchase_page({{$product->id}})">

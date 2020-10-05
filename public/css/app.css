@@ -28130,6 +28130,10 @@ video {
   padding: clamp(1em, 3vw, 5em);
 }
 
+.swal2-icon {
+  font-size: 10px !important;
+}
+
 @media (min-width: 640px){
   .sm\:container{
     width: 100%;

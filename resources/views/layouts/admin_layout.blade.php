@@ -36,7 +36,7 @@
 {{--        --}}
 {{--    </header>--}}
     <div class="flex flex-col sm:flex-row w-full sm:w-auto">
-    <header class="absolute top-0 left-0 w-full z-50 sm:relative sm:w-auto flex flex-col bg-gray-300 sm:h-screen justify-between items-center px-3 py-1 sm:px-10" x-data="{isOpen:true}">
+    <header class="absolute top-0 left-0 w-full z-50 sm:relative sm:w-auto flex flex-col bg-redme text-white sm:h-screen justify-between items-center px-3 py-1 sm:px-10" x-data="{isOpen:true}">
         <div class="flex py-2 items-center w-full justify-start sm:hidden" x-on:click="isOpen = !isOpen"><i class="fa fa-bars"></i> </div>
         <nav class="flex flex-col mx-auto flex nav" :class="{'hidden':isOpen}">
             <ul>

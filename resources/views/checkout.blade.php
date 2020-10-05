@@ -4,7 +4,7 @@
         <div class="w-full h-full inline-block sm:block">
             <div class="w-full py-5 rounded-none shadow-xl sm:px-5 px-1 h-auto sm:h-full flex flex-col sm:flex-row md:flex-row lg:flex-row bg-transparent sm:rounded-custom">
                 <div class="h-full w-full sm:w-1/3 ">
-                   <div class="h-full w-full p-1 bg-redme rounded-lg" x-data="my_data()">
+                   <div class="h-full w-full p-1 bg-redme rounded-lg" x-data="my_data()" x-init="init">
                     <form id="checkout-form" class="h-full rounded-lg bg-white flex flex-col justify-between" >
                         @csrf
 
@@ -45,11 +45,11 @@
                                     </span>
                                 </li>
                                 <li class="flex justify-start items-center">
-                                    <i class="far fa-check-circle text-green-700" x-show="email.trim()!==''"></i>
-                                    <i class="fas fa-exclamation-circle text-red-700" x-show="email.trim()===''"></i>
-                                    <span :class="{'text-green-700':  email.length > 0, 'text-red-700': email.length == 0}"
+                                    <i class="far fa-check-circle text-green-700" x-show="isEmail "></i>
+                                    <i class="fas fa-exclamation-circle text-red-700" x-show="!isEmail"></i>
+                                    <span :class="isEmail ? 'text-green-700':'text-red-700'"
                                           class="font-medium text-sm ml-3"
-                                          x-text="email.length > 0 ? 'Email' : 'Email is required' ">
+                                          x-text=" isEmail ? 'Email' : 'Email must be valid' " >
                                     </span>
                                 </li>
                                 <li class="flex justify-start items-center">
@@ -65,7 +65,7 @@
 
                         </div>
 
-                        <button id="card-button" class="px-3 py-2 text-white flex items-center justify-center" :class="first_name.trim() === ''||last_name.trim()===''||email.trim()===''||ph_no.trim()===''?'bg-red-500':'bg-green-500'" x-bind:disabled="first_name.trim() === ''||last_name.trim()||''&&email.trim()===''">
+                        <button id="card-button" class="px-3 py-2 text-white flex items-center justify-center" :class="first_name.trim() === ''||last_name.trim()===''||email.trim()===''||ph_no.trim()===''?'bg-red-500':'bg-green-500'"  x-bind:disabled="first_name.trim() === '' ||last_name.trim()===''||email.trim()===''">
                             <i class="fas fa-circle-notch fa-spin fa-2x text-blue-600 hide" id="spinner"></i>   Pay
                         </button>
 
@@ -83,12 +83,12 @@
 <script src="https://js.stripe.com/v3/"></script>
 <script>
     const my_data=function(){
+
         return {
             first_name:'',
             last_name:'',
             email:'',
             ph_no:'',
-
             disable_button:true,
             check(){
                 if (this.first_name.trim() === '' && this.last_name.trim() === '' && this.email.trim() === '' && this.ph_no.trim() === '') {
@@ -97,6 +97,20 @@
                 } else {
                     this.disable_button = false;
                 }
+            },
+            init(){
+              this.$watch('email',(val)=> this.validate_mail(val))
+
+            },
+            isEmail:false,
+
+            validate_mail(val){
+                if(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(val))
+                {
+                    this.isEmail=true;
+                }
+                else
+                    this.isEmail=false;
             }
         }
 
@@ -150,7 +164,14 @@
             if (paymentMethod) {
                 return true;
             }
-        if (firstname.value.trim()===''&&lastname.value.trim()===''&&email.value.trim()===''&&ph_no.value.trim()==='')
+           if ({{auth()->user()->carts->isEmpty()}})
+            {
+                Swal.fire({
+                    icon:'warning',
+                    text:'There is no product in your cart'
+                })
+            } else
+                if (firstname.value.trim()===''&&lastname.value.trim()===''&&email.value.trim()===''&&ph_no.value.trim()==='')
         {
             Swal.fire({
                 icon:"error",

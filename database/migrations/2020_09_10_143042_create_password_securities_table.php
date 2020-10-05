@@ -15,7 +15,7 @@ class CreatePasswordSecuritiesTable extends Migration
     {
         Schema::create('password_securities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->boolean('google2fa_enable')->default(false);
             $table->string('google2fa_secret')->nullable();
             $table->timestamps();
